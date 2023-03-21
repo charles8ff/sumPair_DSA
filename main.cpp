@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 #include <chrono>
 #include <locale>
@@ -13,7 +14,7 @@ using namespace std::chrono;
 //     auto t_end = std::chrono::high_resolution_clock::now();
 //     return std::chrono::duration<double, std::milli>(t_end-t_start).count();
 // }
-main() {
+int main() {
     // static long MAX = 1000000000;
     // static long REPS = 25;
     // double elapsed_time_ms;
@@ -33,5 +34,31 @@ main() {
     //     elapsed_time_ms = std::accumulate(vec.begin(), vec.end(), 0.0) / vec.size();
     //     cout << i << ' ' << elapsed_time_ms << endl;
     // }
+
+    cout << "Enter the vector elements separated by spaces: ";
+    string line;
+    getline(cin, line);
+    istringstream iss(line);
+
+    vector<int> vec;
+    int element;
+    while (iss >> element) {
+        vec.push_back(element);
+    }
+
+    int count = 0;
+
+    for (size_t i = 0; i < vec.size(); ++i) {
+        for (size_t j = i + 1; j < vec.size(); ++j) {
+            if (vec[i] + vec[j] == 0) {
+                cout << "Pair: (" << vec[i] << ", " << vec[j] << ")" << endl;
+                count++;
+            }
+        }
+    }
+
+    cout << "Number of pairs with sum 0: " << count << endl;
+
+
     return 0;
 }
