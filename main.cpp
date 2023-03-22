@@ -23,9 +23,8 @@ void sumPair(const vector<int> myInput){
         }
     }
     cout << "Number of pairs with sum 0: " << count << endl;
-
-
 }
+
 static double sumPair_under_test( const vector<int> myInput ) {
     auto t_start = high_resolution_clock::now();
     sumPair(myInput);
