@@ -57,7 +57,7 @@ int main() {
     while (iss >> element) {
         myInput.push_back(element);
     }
-    // END OF USER PROMPT 
+    // END OF USER PROMPT
     for( int i=100; i<MAX; i=i*10){
         vector<double> vec;
         for( int j=0; j< REPS; j++ ){
